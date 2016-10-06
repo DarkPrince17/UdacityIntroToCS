@@ -55,7 +55,27 @@ incorrect4 = [['a','b','c'],
 incorrect5 = [ [1, 1.5],
                [1.5, 1]]
                
-def check_sudoku():
+def check_sudoku(p):
+    n = len(p) #Extract The Length Of The Grid
+    digit = 1
+    while(digit<=n):
+        i=0
+        while(i<n):
+            j=0
+            row_count=0
+            col_count=0
+            while(j<n):
+                if(p[i][j]==digit):
+                    row_count+=1
+                if(p[j][i]==digit):
+                    col_count+=1
+                j=j+1
+            if (row_count != 1 or col_count != 1):
+                return False
+            i=i+1
+        digit=digit+1
+    return True
+            
     
 
 
@@ -63,22 +83,22 @@ def check_sudoku():
 
     
     
-#print check_sudoku(incorrect)
+print check_sudoku(incorrect)
 #>>> False
 
-#print check_sudoku(correct)
+print check_sudoku(correct)
 #>>> True
 
-#print check_sudoku(incorrect2)
+print check_sudoku(incorrect2)
 #>>> False
 
-#print check_sudoku(incorrect3)
+print check_sudoku(incorrect3)
 #>>> False
 
-#print check_sudoku(incorrect4)
+print check_sudoku(incorrect4)
 #>>> False
 
-#print check_sudoku(incorrect5)
+print check_sudoku(incorrect5)
 #>>> False
 
 
